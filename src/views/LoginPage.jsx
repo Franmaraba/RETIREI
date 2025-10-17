@@ -1,0 +1,12 @@
+function LoginPage() {
+
+
+    return(
+        <>
+        <h1>Cadastre-se</h1>
+        </>
+    )
+    
+}
+
+export default LoginPage;
