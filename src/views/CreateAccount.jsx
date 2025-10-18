@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
 
 
 function CreateAccount() {
-
+    const navigate = useNavigate;
 
     return(
         <>

@@ -3,7 +3,7 @@ function LoginPage() {
 
     return(
         <>
-        <h1>Cadastre-se</h1>
+        <h1>Login</h1>
         </>
     )
     

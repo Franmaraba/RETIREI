@@ -1,5 +1,5 @@
 import logo from '../assets/Retirei.svg'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import '../global.css'
 
 function HomePage () {
@@ -16,8 +16,8 @@ function HomePage () {
             <p>Cuide do <strong>futuro</strong>, descarte de forma responsável</p>
 
             <p>Seja bem Vindo</p>
-            <NavLink to="/login" ><button>Já tenho uma conta</button></NavLink>
-            <NavLink to="/create-account"><button>Criar conta</button></NavLink>
+            <Link to="/login" ><button>Já tenho uma conta</button></Link>
+            <Link to="/create-account"><button>Criar conta</button></Link>
             
             
         </div>
