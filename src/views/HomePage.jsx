@@ -16,8 +16,8 @@ function HomePage () {
             <p>Cuide do <strong>futuro</strong>, descarte de forma responsável</p>
 
             <p>Seja bem Vindo</p>
-            <Link to="/login" ><button>Já tenho uma conta</button></Link>
-            <Link to="/create-account"><button>Criar conta</button></Link>
+            <NavLink to="/login" ><button>Já tenho uma conta</button></NavLink>
+            <NavLink to="/create-account"><button>Criar conta</button></NavLink>
             
             
         </div>

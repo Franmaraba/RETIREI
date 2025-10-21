@@ -6,6 +6,7 @@ import './App.css'
 import HomePage from './views/HomePage';
 import LoginPage from './views/LoginPage';
 import CreateAccount from './views/CreateAccount';
+import MainPage from './views/MainPage';
 
 function App() {
 
@@ -26,16 +27,15 @@ function AuthContent() {
       {user ? (
 
         <>
-      
-          
-            <Route index element={<LoginPage />} />
+
+          <Route path='/' element={<MainPage />} />
             
         </>  
         
     ) : (
 
         <>
-          <Route path="/" element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/create-account' element={<CreateAccount />} />
         </>
