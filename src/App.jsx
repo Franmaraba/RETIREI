@@ -7,6 +7,8 @@ import HomePage from './views/HomePage';
 import LoginPage from './views/LoginPage';
 import CreateAccount from './views/CreateAccount';
 import MainPage from './views/MainPage';
+import PainelColetora from './views/PainelColetora';
+import PainelUsuario from './views/PainelUsuario';
 
 function App() {
 
@@ -29,6 +31,8 @@ function AuthContent() {
         <>
 
           <Route path='/' element={<MainPage />} />
+          <Route path='/painelcoletora' element={PainelColetora}/>
+          <Route path='/painelusuario' element={PainelUsuario}/>
             
         </>  
         
