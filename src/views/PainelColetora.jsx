@@ -13,7 +13,7 @@ import {
 
 function PainelColetora() {
   const [coletas, setColetas] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState('');
 
   useEffect(() => {
     const buscarColetasPendentes = async () => {
@@ -60,7 +60,7 @@ function PainelColetora() {
     }
   };
 
-  const pageTitle = 'Solicitações Pendentes'
+  const pageTitle = 'Painel Coletora'
 
   return (
     <div>

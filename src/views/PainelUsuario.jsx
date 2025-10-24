@@ -6,10 +6,10 @@ import  Header  from '../componets/Header';
 function PainelUsuario(){
 
     const [coletas, setColetas] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState('');
 
     
-useEffect(() => {
+  useEffect(() => {
     const buscarColetas = async () => {
       
     try {
@@ -39,10 +39,11 @@ useEffect(() => {
   
     buscarColetas();
   }, []);
-
+  
+  const pageTitle = 'Painel Usuario'
 
   
-return (
+  return (
     <div>
       <Header pageTitle={pageTitle}/>
       <h2>Minhas Solicitações de Coleta</h2>
@@ -66,7 +67,7 @@ return (
         </ul>
       )}
     </div>
-  )
+  );
 
   
 

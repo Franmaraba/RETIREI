@@ -96,7 +96,7 @@ function LoginPage() {
         }
       } else {
         console.warn('Usuário não encontrado no Firestore, redirecionando para cadastro.');
-        navigate('/cadastro');
+        navigate('/create-account');
       }
 
     } catch (error) {
