@@ -8,26 +8,23 @@ import funcionaIcon from "../assets/funciona.ong.png";
 import helpIcon from "../assets/help.png";
 import { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-//import "../global.css";
 import "./HomePage.css";
 
 function HomePage() {
+  useEffect(() => {
+    const links = document.querySelectorAll('.menu a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const alvo = document.querySelector(link.getAttribute("href"));
+        if (alvo) alvo.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+    return () => {
+      links.forEach((link) => link.removeEventListener("click", () => {}));
+    };
+  }, []);
 
-    useEffect(() => {
-        const links = document.querySelectorAll('.menu a[href^="#"]');
-        links.forEach(link => {
-          link.addEventListener("click", e => {
-            e.preventDefault();
-            const alvo = document.querySelector(link.getAttribute("href"));
-            if (alvo) alvo.scrollIntoView({ behavior: "smooth" });
-          });
-        });
-        return () => {
-          links.forEach(link =>
-            link.removeEventListener("click", () => {})
-          );
-        };
-      }, []);
   return (
     <>
       <header className="hero">
@@ -37,7 +34,7 @@ function HomePage() {
           </h4>
 
           <nav className="menu">
-          <a href="#sobre">Sobre</a>
+            <a href="#sobre">Sobre</a>
             <a href="#funciona">Como funciona?</a>
             <a href="#suporte">Suporte</a>
             <NavLink to="/login">Entrar</NavLink>
@@ -55,32 +52,34 @@ function HomePage() {
         </div>
       </header>
 
-      <h3 class="titulo-descartes">Itens que podem ser descartados:</h3>
+      <div className="hero2">
+        <h3 className="titulo-descartes">Itens que podem ser descartados:</h3>
 
-      <section class="features">
-        <div class="feature">
-          <h3>Celulares</h3>
-          <img src={celulares} alt="Celulares" />
-        </div>
+        <section className="features">
+          <div className="feature">
+            <h3>Celulares</h3>
+            <img src={celulares} alt="Celulares" />
+          </div>
 
-        <div class="feature">
-          <h3>Computadores</h3>
-          <img src={computadores} alt="Computadores" />
-        </div>
+          <div className="feature">
+            <h3>Computadores</h3>
+            <img src={computadores} alt="Computadores" />
+          </div>
 
-        <div class="feature">
-          <h3>Pilhas e Baterias</h3>
-          <img src={pilhas} alt="Pilhas e Baterias" />
-        </div>
+          <div className="feature">
+            <h3>Pilhas e Baterias</h3>
+            <img src={pilhas} alt="Pilhas e Baterias" />
+          </div>
 
-        <div class="feature">
-          <h3>Eletrodomésticos</h3>
-          <img src={eletronico} alt="Eletrodomésticos" />
-        </div>
-      </section>
+          <div className="feature">
+            <h3>Eletrodomésticos</h3>
+            <img src={eletronico} alt="Eletrodomésticos" />
+          </div>
+        </section>
+      </div>
 
-      <section id="sobre" class="secao lado-esquerdo">
-        <div class="texto">
+      <section id="sobre" className="secao lado-esquerdo">
+        <div className="texto">
           <h2>Sobre o projeto</h2>
           <p>
             Nosso sistema foi desenvolvido para facilitar o descarte consciente
@@ -98,17 +97,17 @@ function HomePage() {
             redução de resíduos eletrônicos descartados de forma inadequada.
           </p>
         </div>
-        <div class="icone">
+        <div className="icone">
           <img src={sobreIcon} alt="Ícone sobre o projeto" />
         </div>
       </section>
 
-      <section id="funciona" class="secao lado-direito">
-        <div class="icone">
+      <section id="funciona" className="secao lado-direito">
+        <div className="icone">
           <img src={funcionaIcon} alt="Ícone de funcionamento" />
         </div>
 
-        <div class="texto">
+        <div className="texto">
           <h2>
             Descartar eletrônicos ficou fácil com o Retirei. Mas como funciona?
           </h2>
@@ -119,8 +118,8 @@ function HomePage() {
         </div>
       </section>
 
-      <section id="suporte" class="secao lado-esquerdo">
-        <div class="texto">
+      <section id="suporte" className="secao lado-esquerdo">
+        <div className="texto">
           <h2>Suporte</h2>
           <p>
             Nossa equipe está pronta para te ajudar com qualquer dúvida sobre
@@ -138,7 +137,7 @@ function HomePage() {
             📚 Central de Ajuda: <a href="#">Acessar FAQ</a>
           </p>
         </div>
-        <div class="icone">
+        <div className="icone">
           <img src={helpIcon} alt="Ícone de suporte" />
         </div>
       </section>

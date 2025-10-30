@@ -161,6 +161,10 @@ body {
     padding: 100px 20px; /* Ajuste o padding conforme necessário */
 }
 
+.hero2{
+  background-color: #ffffff;
+}
+
 
  .hero h1 {
      font-weight: 300;
