@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { db, auth } from '../firebase/config'
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import  Header  from '../componets/Header';
+import '../global.css'
 
 function PainelUsuario(){
 

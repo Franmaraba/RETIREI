@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ruda:wght@400..900&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.hero {
+  background-image: url('fundo.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 400px;
+}
+
+/* === TOPO DO CABEÇALHO === */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px; /* antes era 25px — diminuí pra subir tudo */
+  position: absolute;
+  top: 0; /* cola no topo */
+  left: 0;
+  right: 0;
+}
+
+/* === TEXTO CENTRAL (ajustado para ficar mais acima) === */
+.hero-text {
+  position: absolute;
+  top: 40%; /* ligeiramente mais alto */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero-text p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 50px !important;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+.hero-text strong {
+  font-weight: 800; /* ou 700 se quiser mais suave */
+  color: #0a3a1e; /* opcional: dá destaque em verde */
+}
+
+ .logo {
+  margin: 0;
+  padding: 0;
+}
+
+
+.logo img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+
+/* === MENU === */
+.menu {
+  display: flex;
+  gap: 25px;
+  font-size: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: #6fcf97;
+}
+
+
+/* === RESTANTE DO SITE === */
+
+
+.feature {
+  background: linear-gradient(135deg, #00a86b);
+  color: white;
+  width: 220px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+}
+
+.feature img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.titulo-descartes {
+  text-align: center;
+  background: linear-gradient(90deg, #00a86b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 40px auto;
+}
+
+
+.titulo-descartes::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg,#00a86b);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+
+
+ header img {
+     width: 35px;
+     height: 35px;
+     margin-right: 10px;
+ }
+
+ nav {
+     margin-left: auto;
+ }
+
+ nav a {
+     text-decoration: none;
+     color: #ffffff;
+     margin: 0 12px;
+     font-weight: 500;
+     transition: color 0.3s;
+ }
+
+ nav a:hover,
+ nav a.active {
+     color: #6fcf97;
+ }
+
+ .hero {
+    background: linear-gradient(to right, #00a86b);
+    background-image: url('fundo.png'); /* Coloque o caminho da sua imagem aqui */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px; /* Ajuste o padding conforme necessário */
+}
+
+
+ .hero h1 {
+     font-weight: 300;
+     font-size: 60px;
+     margin-bottom: 10px;
+ }
+
+ .hero h2 {
+     font-weight: 700;
+     font-size: 90px;
+     margin-bottom: 10px;
+ }
+
+ .hero p {
+     margin-top: 90px;
+     font-weight: 300;
+     font-size: 20px;
+ }
+
+ .features {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     padding: 60px 30px;
+     flex-wrap: wrap;
+ }
+
+ .feature {
+     background: linear-gradient(135deg,#6fcf97);
+     color: white;
+     width: 30x;
+     border-radius: 10px;
+     padding: 20px;
+     box-shadow: 0 8px 16px rgba(48, 207, 208, 0.3);
+     text-align: center;
+     transition: transform 0.3s ease;
+ }
+
+ .feature:hover {
+     transform: translateY(-10px);
+ }
+
+ .feature h3 {
+     margin-top: 10px;
+     font-weight: 500;
+ }
+
+.feature img {
+  width: 100%;
+  height: 180px; /* altura fixa para todas */
+  object-fit: cover; /* mantém proporção e preenche o espaço */
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.titulo-descartes {
+  text-align: center;
+  background: linear-gradient(90deg, #00a86b, #007f5f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 25px;
+  font-weight: 200px;
+  position: relative;
+  margin: 30px 100px 30px;
+}
+
+.titulo-descartes::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #6fcf97);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* CSS */
+.secao {
+  display: flex;
+  align-items: center;           /* verticalmente alinhado */
+  justify-content: space-between;
+  min-height: 70vh;             /* altura da seção — ajuste se quiser */
+  background-color: #1eddad;    /* fundo claro parecido com o exemplo */
+  padding: 60px 0;              /* espaçamento superior/inferior */
+  overflow: hidden;             /* evita scroll se a img "vazar" */
+}
+
+/* coluna de texto (esquerda) */
+.secao .texto {
+  width: 48%;                   /* ocupa ~ metade esquerda */
+  max-width: 720px;
+  margin-left: 6%;              /* afasta do canto esquerdo para ficar igual ao exemplo */
+  text-align: center;           /* centraliza linhas como no exemplo */
+}
+
+.secao .texto h2 {
+  font-size: 28px;
+  line-height: 1.4;
+  color: #0e6049;               /* verde escuro similar */
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.secao .texto p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;           /* mantém o bloco centralizado */
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* coluna da imagem (direita) */
+.secao .imagem {
+  width: 52%;                   /* ocupa ~ metade direita */
+  height: 100%;                 /* pega a altura da seção */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+}
+
+
+.secao .imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* preenche mantendo proporção */
+  display: block;
+}
+
+/* responsividade: empilha em telas menores */
+@media (max-width: 900px) {
+  .secao {
+    flex-direction: column;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .secao .texto,
+  .secao .imagem {
+    width: 100%;
+    margin: 0;
+  }
+
+  .secao .texto {
+    text-align: justify;
+    padding: 0 10px;
+  }
+
+  .secao .imagem img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin-top: 24px;
+  }
+}

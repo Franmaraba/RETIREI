@@ -10,6 +10,7 @@ import {
   doc,
   updateDoc
 } from 'firebase/firestore';
+import '../global.css'
 
 function PainelColetora() {
   const [coletas, setColetas] = useState([]);
@@ -76,7 +77,7 @@ function PainelColetora() {
         <ul>
           {coletas.map((coleta) => (
             <li key={coleta.id}>
-              <strong>Solicitante:</strong> {coleta.solicitanteId} <br />
+              <strong>Solicitante:</strong> {coleta.solitanteId} <br />
               <strong>Tipo:</strong> {coleta.tipoLixo} <br />
               <strong>Quantidade:</strong> {coleta.quantidade} <br />
               <strong>Endereço:</strong> {coleta.endereco} <br />

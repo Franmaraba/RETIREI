@@ -4,6 +4,7 @@ import { auth, db } from '../firebase/config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import '../global.css'
 
 
 function CreateAccount() {

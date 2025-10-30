@@ -31,7 +31,6 @@ function AuthContent() {
 
         <>
 
-          <Route path='/' element={<MainPage />} />
           <Route path='/solicitacao' element={<SolicitacaoForm/>}/>
           <Route path='/painel-coletora' element={<PainelColetora/>}/>
           <Route path='/painel-usuario' element={<PainelUsuario/>}/>

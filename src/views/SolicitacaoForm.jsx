@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { db, auth } from "../firebase/config";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import '../global.css'
 
 function SolicitacaoForm() {
   const [ tipoLixo, setTipoLixo ]  = useState("");
