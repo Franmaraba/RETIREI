@@ -1,10 +1,11 @@
 import { auth, db } from "../firebase/config.js";
+import logo from "../assets/Retirei.png";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
+  /*signInWithPopup,
+  GoogleAuthProvider,*/
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
@@ -76,8 +77,8 @@ function LoginPage() {
     }
   }
 
-  // 🔹 LOGIN COM GOOGLE
-  async function handleGoogleLogin(e) {
+  //  LOGIN COM GOOGLE
+  /*async function handleGoogleLogin(e) {
     e.preventDefault();
     setError("");
 
@@ -88,7 +89,7 @@ function LoginPage() {
 
       console.log("Login com Google:", user.email);
 
-      // 🔍 Busca o tipo no Firestore
+      //  Busca o tipo no Firestore
       const userDoc = await getDoc(doc(db, "users", user.uid));
 
       if (userDoc.exists()) {
@@ -109,7 +110,7 @@ function LoginPage() {
       console.error("Google login failed:", error);
       setError(dict_errors[error.code] || error.message);
     }
-  }
+  }*/
 
   // 🔹 RESET DE SENHA
   function handlePasswordReset() {
@@ -120,10 +121,18 @@ function LoginPage() {
   }
 
   return (
+
+    
     <div className="container login-page">
+      <h4 className="logopage">
+        <NavLink to="/"><img src={logo} alt="Logo Retirei" /></NavLink>
+                  
+                </h4>
+      
       <section>
-        <h2>Login</h2>
+
         <form className="add-form login">
+        <h2>Login</h2>
           <div className="form-control">
             <label>E-mail *</label>
             <input
@@ -149,13 +158,11 @@ function LoginPage() {
           <button onClick={handleLogin} className="active btn btn-block">
             Entrar
           </button>
-          <br />
-          <button onClick={handleGoogleLogin} className="active btn btn-block">
+          {/*<button onClick={handleGoogleLogin} className="active btn btn-block">
             Login com Google
-          </button>
+          </button>*/}
 
           {error && <div className="error">{error}</div>}
-          <br />
           <a href="" onClick={handlePasswordReset} className="forgot-password">
             Esqueci minha senha.
           </a>

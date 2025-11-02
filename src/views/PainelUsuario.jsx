@@ -65,7 +65,7 @@ function PainelUsuario() {
       )}
       <NavLink to="/solicitacao">
         <div className="floating-button">
-          <span>+</span>
+          <span><button> Nova solicitação </button></span>
         </div>
       </NavLink>
     </>

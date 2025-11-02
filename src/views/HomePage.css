@@ -23,14 +23,14 @@ body {
   padding: 10px 50px; /* antes era 25px — diminuí pra subir tudo */
   position: absolute;
   top: 0; /* cola no topo */
-  left: 0;
+  left: 0px;
   right: 0;
 }
 
 /* === TEXTO CENTRAL (ajustado para ficar mais acima) === */
 .hero-text {
   position: absolute;
-  top: 40%; /* ligeiramente mais alto */
+  top: 50%; /* ligeiramente mais alto */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;

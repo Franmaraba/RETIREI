@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import  Header  from '../componets/Header';
 import { db, auth } from '../firebase/config';
+import { useNavigate } from 'react-router-dom';
 import {
   collection,
   query,
@@ -15,6 +16,7 @@ import '../global.css'
 function PainelColetora() {
   const [coletas, setColetas] = useState([]);
   const [loading, setLoading] = useState('');
+  const navigate = useNavigate('');
 
   useEffect(() => {
     const buscarColetasPendentes = async () => {
@@ -49,16 +51,19 @@ function PainelColetora() {
         status: novoStatus,
         empresaId: auth.currentUser.uid
       });
-
+      
       // Atualiza a lista local
       setColetas((prev) =>
         prev.map((c) =>
           c.id === id ? { ...c, status: novoStatus } : c
         )
       );
+      
+
     } catch (error) {
       console.error('Erro ao atualizar status:', error);
     }
+    navigate('/painel-coletora');
   };
 
   const pageTitle = 'Painel Coletora'
@@ -77,7 +82,7 @@ function PainelColetora() {
         <ul>
           {coletas.map((coleta) => (
             <li key={coleta.id}>
-              <strong>Solicitante:</strong> {coleta.solitanteId} <br />
+              <strong>Solicitante:</strong> {coleta.nomeSolicitante} <br />
               <strong>Tipo:</strong> {coleta.tipoLixo} <br />
               <strong>Quantidade:</strong> {coleta.quantidade} <br />
               <strong>Endereço:</strong> {coleta.endereco} <br />

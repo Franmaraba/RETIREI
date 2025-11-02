@@ -33,12 +33,12 @@ function HomePage() {
             <img src={logo} alt="Logo Retirei" />
           </h4>
 
-          <nav className="menu">
+          <nav className="menu"> 
             <a href="#sobre">Sobre</a>
             <a href="#funciona">Como funciona?</a>
             <a href="#suporte">Suporte</a>
             <NavLink to="/login">Entrar</NavLink>
-            <NavLink to="/create-account">Cadastre-se</NavLink>
+            <NavLink to="/create-account">Cadastre-se</NavLink> 
           </nav>
         </div>
 

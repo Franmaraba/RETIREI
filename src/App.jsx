@@ -8,6 +8,7 @@ import PainelColetora from "./views/PainelColetora";
 import PainelUsuario from "./views/PainelUsuario";
 import SolicitacaoForm from "./views/SolicitacaoForm";
 import ProtectedRoute from "./componets/ProtectedRoute";
+import MainPage from "./views/MainPage";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function AuthContent() {
     <Routes>
       {!user && (
         <>
-          <Route path="/" element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/create-account" element={<CreateAccount />} />
         </>

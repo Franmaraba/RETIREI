@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { db, auth } from "../firebase/config";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import '../global.css'
+import { collection, addDoc, getDoc, doc, Timestamp } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import "../global.css";
 
 function SolicitacaoForm() {
-  const [ tipoLixo, setTipoLixo ]  = useState("");
-  const [ quantidade, setQuantidade ] = useState("");
-  const [ observacoes, setObservacoes ] = useState("");
-  const [ endereco, setEndereco ] = useState("");
-  const [ loading, setLoading ] = useState("");
-  const [ mensagem, setMensagem ] = useState("");
+  const [tipoLixo, setTipoLixo] = useState("");
+  const [quantidade, setQuantidade] = useState("");
+  const [observacoes, setObservacoes] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [loading, setLoading] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,9 +19,14 @@ function SolicitacaoForm() {
 
     try {
       const user = auth.currentUser;
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      const nomeSolicitante = userDoc.exists()
+        ? userDoc.data().nome
+        : "Sem nome";
 
       await addDoc(collection(db, "coletas"), {
         solicitanteId: user.uid,
+        nomeSolicitante,
         tipoLixo,
         quantidade: parseInt(quantidade),
         observacoes,
@@ -33,6 +40,7 @@ function SolicitacaoForm() {
       setQuantidade("");
       setObservacoes("");
       setEndereco("");
+      navigate("/painel-usuario");
     } catch (error) {
       console.error("Erro ao enviar solicitação:", error);
       setMensagem("Erro ao enviar solicitação.");
