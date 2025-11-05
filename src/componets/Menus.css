@@ -1,0 +1,52 @@
+/* Menu lateral esquerdo */
+.container-menu {
+    background: #bfccc2;
+    color: #333;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100px;
+    min-height: calc(100vh - 60px);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    overflow:hidden;
+  }
+
+  .container-menu h2 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-size: 30px;
+  }
+  
+  .container-menu button {
+    background: #0a531a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+  }
+  
+  .container-menu button:hover {
+    background: #0e6f22;
+  }
+
+  @media (max-width: 768px) {
+    .painel-container {
+      flex-direction: column;
+    }
+  
+    .container-menu {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      box-shadow: none;
+    }
+  
+    .painel-content {
+      padding: 1rem;
+    }
+  }

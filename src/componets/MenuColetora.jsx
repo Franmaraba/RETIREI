@@ -1,0 +1,26 @@
+import { NavLink } from "react-router-dom";
+import './Menus.css';
+
+function MenuColetor() {
+
+  return (
+    <>
+      <section className="container-menu">
+        <h2>Menu</h2>
+        <NavLink to="#">
+          <button>Perfil</button>
+        </NavLink>
+
+        <NavLink to="#">
+          <button>Coletas aceitas</button>
+        </NavLink>
+
+        <NavLink to="#">
+          <button>Historico de Coletas</button>
+        </NavLink>
+      </section>
+    </>
+  );
+}
+
+export default MenuColetor;

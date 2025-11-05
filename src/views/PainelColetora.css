@@ -1,0 +1,92 @@
+/* Layout geral */
+.painel-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header fixo no topo */
+  .header-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #0a531a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Conteúdo abaixo do header */
+  .painel-container {
+    display: flex;
+    flex: 1;
+    margin-top: 20px; /* Espaço para o header fixo */
+  }
+  
+  
+
+  
+  /* Painel principal à direita */
+  .painel-content {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    overflow-y: auto;
+  }
+  
+  .painel-content h2 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  /* Estilo das coletas */
+  .coleta-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btns-coleta {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .btns-coleta button {
+    background: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btns-coleta button:hover {
+    background: #005fa3;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .painel-container {
+      flex-direction: column;
+    }
+  
+    .container-menu {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      box-shadow: none;
+    }
+  
+    .painel-content {
+      padding: 1rem;
+    }
+  }
+  

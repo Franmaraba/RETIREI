@@ -3,7 +3,9 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db, auth } from "../firebase/config.js";
 import { useAuth } from "../contexts/AuthContext";
+import logo from "../assets/Retirei.png";
 import "../App.css";
+import './Header.css';
 
 function Header({ pageTitle }) {
   const { user } = useAuth();
@@ -46,10 +48,9 @@ function Header({ pageTitle }) {
   return (
     <section className="header-section">
       <div className="header-btns">
-        <NavLink to="/user-prof">
-          <button className="btn">Perfil</button>
-        </NavLink>
-
+        <h4 className="logo-header">
+                    <img src={logo} alt="Logo Retirei" />
+                  </h4>
         <div className="user-info">
           {userData && (
             <>
