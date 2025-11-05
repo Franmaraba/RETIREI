@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db, auth } from "../firebase/config.js";
 import { useAuth } from "../contexts/AuthContext";
 import logo from "../assets/Retirei.png";
 import "../App.css";
-import './Header.css';
+import "./Header.css";
 
 function Header({ pageTitle }) {
   const { user } = useAuth();
   const [userData, setUserData] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -38,7 +36,6 @@ function Header({ pageTitle }) {
       try {
         await auth.signOut();
         console.log("Usuário deslogado com sucesso");
-        navigate('/');
       } catch (error) {
         console.error("Erro ao sair:", error.message);
       }
@@ -49,8 +46,8 @@ function Header({ pageTitle }) {
     <section className="header-section">
       <div className="header-btns">
         <h4 className="logo-header">
-                    <img src={logo} alt="Logo Retirei" />
-                  </h4>
+          <img src={logo} alt="Logo Retirei" />
+        </h4>
         <div className="user-info">
           {userData && (
             <>

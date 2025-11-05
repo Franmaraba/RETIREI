@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../componets/Header';
 import { db, auth } from '../firebase/config';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import {
   collection,
   query,
@@ -17,7 +17,6 @@ import './PainelColetora.css'; // Novo arquivo CSS
 function PainelColetora() {
   const [coletas, setColetas] = useState([]);
   const [loading, setLoading] = useState('');
-  const navigate = useNavigate('');
 
   useEffect(() => {
     const buscarColetasPendentes = async () => {
@@ -46,10 +45,11 @@ function PainelColetora() {
         empresaId: auth.currentUser.uid
       });
       setColetas((prev) => prev.map((c) => (c.id === id ? { ...c, status: novoStatus } : c)));
+      <Navigate to='/painel-coletora'/>
     } catch (error) {
       console.error('Erro ao atualizar status:', error);
     }
-    navigate('/painel-coletora');
+   
   };
 
   const pageTitle = 'Painel Coletora';
@@ -78,9 +78,6 @@ function PainelColetora() {
                   <div className="btns-coleta">
                     <button onClick={() => atualizarStatus(coleta.id, 'em andamento')}>
                       Aceitar Coleta
-                    </button>
-                    <button onClick={() => atualizarStatus(coleta.id, 'concluída')}>
-                      Marcar como Concluída
                     </button>
                   </div>
                 </li>

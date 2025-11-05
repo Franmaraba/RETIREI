@@ -59,6 +59,7 @@ function SolicitacaoForm() {
           type="text"
           value={tipoLixo}
           onChange={(e) => setTipoLixo(e.target.value)}
+          placeholder="*"
           required
         />
 
@@ -67,6 +68,7 @@ function SolicitacaoForm() {
           type="number"
           value={quantidade}
           onChange={(e) => setQuantidade(e.target.value)}
+          placeholder="*"
           required
         />
 
@@ -81,13 +83,16 @@ function SolicitacaoForm() {
           type="text"
           value={endereco}
           onChange={(e) => setEndereco(e.target.value)}
+          placeholder="*"
           required
         />
 
         <button type="submit" disabled={loading}>
           {loading ? "Enviando..." : "Solicitar Coleta"}
         </button>
+        <p>Os campos com * são de preechimento obrigatório</p>
       </form>
+      
 
       {mensagem && <p>{mensagem}</p>}
     </div>

@@ -7,11 +7,11 @@ function MenuColetor() {
     <>
       <section className="container-menu">
         <h2>Menu</h2>
-        <NavLink to="#">
+        <NavLink to="/perfil">
           <button>Perfil</button>
         </NavLink>
 
-        <NavLink to="#">
+        <NavLink to="/coletas-aceitas">
           <button>Coletas aceitas</button>
         </NavLink>
 

@@ -9,6 +9,8 @@ import PainelUsuario from "./views/PainelUsuario";
 import SolicitacaoForm from "./views/SolicitacaoForm";
 import ProtectedRoute from "./componets/ProtectedRoute";
 import MainPage from "./views/MainPage";
+import PagePerfil from "./views/PagePerfil";
+import ColetasAceitas from "./views/ColetasAceitas";
 
 function App() {
   return (
@@ -55,6 +57,19 @@ function AuthContent() {
           </ProtectedRoute>
         }
       />
+      <Route path="/Perfil" element={
+        <ProtectedRoute tipoPermitido="coletora">
+          <PagePerfil/>
+        </ProtectedRoute>
+      }
+      />
+      <Route path="/coletas-aceitas" element={
+        <ProtectedRoute tipoPermitido="coletora">
+          <ColetasAceitas/>
+        </ProtectedRoute>
+      }
+      />
+      
     </Routes>
   );
 }
