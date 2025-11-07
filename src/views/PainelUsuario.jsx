@@ -4,6 +4,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { NavLink } from "react-router-dom";
 import Header from "../componets/Header";
 import "../global.css";
+import MenuSolicitante from "../componets/MenuSolicitante";
 
 function PainelUsuario() {
   const [coletas, setColetas] = useState([]);

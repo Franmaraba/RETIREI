@@ -134,22 +134,6 @@ body {
      margin-right: 10px;
  }
 
- nav {
-     margin-left: auto;
- }
-
- nav a {
-     text-decoration: none;
-     color: #ffffff;
-     margin: 0 12px;
-     font-weight: 500;
-     transition: color 0.3s;
- }
-
- nav a:hover,
- nav a.active {
-     color: #6fcf97;
- }
 
  .hero {
     background: linear-gradient(to right, #00a86b);
@@ -218,17 +202,6 @@ body {
   object-fit: cover; /* mantém proporção e preenche o espaço */
   border-radius: 10px;
   margin-top: 10px;
-}
-
-.titulo-descartes {
-  text-align: center;
-  background: linear-gradient(90deg, #00a86b, #007f5f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 25px;
-  font-weight: 200px;
-  position: relative;
-  margin: 30px 100px 30px;
 }
 
 .titulo-descartes::after {

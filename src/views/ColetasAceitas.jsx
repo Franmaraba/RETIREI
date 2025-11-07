@@ -3,7 +3,7 @@ import Header from "../componets/Header";
 import MenuColetor from "../componets/MenuColetora";
 import { db, auth } from "../firebase/config";
 import { collection, query, where, getDocs, doc, updateDoc } from "firebase/firestore";
-//import "./ColetasAceitas.css";
+import './ColetasAceitas.css';
 
 function ColetasAceitas() {
   const [coletas, setColetas] = useState([]);
@@ -63,7 +63,8 @@ function ColetasAceitas() {
             <ul>
               {coletas.map((coleta) => (
                 <li key={coleta.id} className="coleta-card">
-                  <strong>Solicitante:</strong> {coleta.nomeSolicitante} <br />
+                  <strong>Solicitante:</strong> {coleta.nomeSolicitante } <br />
+                  <strong>Telefone:</strong> {coleta.telefoneSolicitante || "Sem Telefone"} <br />
                   <strong>Tipo de Lixo:</strong> {coleta.tipoLixo} <br />
                   <strong>Quantidade:</strong> {coleta.quantidade} <br />
                   <strong>Endereço:</strong> {coleta.endereco} <br />

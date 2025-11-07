@@ -15,7 +15,7 @@ function MenuColetor() {
           <button>Coletas aceitas</button>
         </NavLink>
 
-        <NavLink to="#">
+        <NavLink to="/historico-coletas">
           <button>Historico de Coletas</button>
         </NavLink>
       </section>

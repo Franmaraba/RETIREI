@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
-  /*signInWithPopup,
-  GoogleAuthProvider,*/
+  signInWithPopup,
+  GoogleAuthProvider,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import "../global.css";
 
 function LoginPage() {
@@ -63,9 +63,9 @@ function LoginPage() {
 
         // 🚀 Redireciona para o painel correto
         if (tipo === "solicitante") {
-          navigate("/painel-usuario");
+          navigate("/");
         } else {
-          navigate("/painel-coletora");
+          navigate("/");
         }
       } else {
         console.warn("Documento de usuário não encontrado no Firestore.");
@@ -78,7 +78,7 @@ function LoginPage() {
   }
 
   //  LOGIN COM GOOGLE
-  /*async function handleGoogleLogin(e) {
+  async function handleGoogleLogin(e) {
     e.preventDefault();
     setError("");
 
@@ -90,27 +90,25 @@ function LoginPage() {
       console.log("Login com Google:", user.email);
 
       //  Busca o tipo no Firestore
-      const userDoc = await getDoc(doc(db, "users", user.uid));
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
 
-      if (userDoc.exists()) {
-        const tipo = userDoc.data().tipo;
-
-        if (tipo === "solicitante") {
-          navigate("/painel-usuario");
-        } else {
-          navigate("/painel-coletora");
-        }
-      } else {
-        console.warn(
-          "Usuário não encontrado no Firestore, redirecionando para cadastro."
-        );
-        navigate("/create-account");
+      if (!userSnap.exists()) {
+        // Se não existir, cria um novo registro
+        await setDoc(userRef, {
+          nome: user.displayName || "",
+          email: user.email,
+          fotoURL: user.photoURL || "",
+          tipo: "solicitante", // ou "coletora" — defina conforme sua lógica
+          dataCadastro: new Date(),
+        });
       }
+      navigate("/");
     } catch (error) {
       console.error("Google login failed:", error);
       setError(dict_errors[error.code] || error.message);
     }
-  }*/
+  }
 
   // 🔹 RESET DE SENHA
   function handlePasswordReset() {
@@ -121,18 +119,16 @@ function LoginPage() {
   }
 
   return (
-
-    
     <div className="container login-page">
       <h4 className="logopage">
-        <NavLink to="/"><img src={logo} alt="Logo Retirei" /></NavLink>
-                  
-                </h4>
-      
-      <section>
+        <NavLink to="/">
+          <img src={logo} alt="Logo Retirei" />
+        </NavLink>
+      </h4>
 
+      <section>
         <form className="add-form login">
-        <h2>Login</h2>
+          <h2>Login</h2>
           <div className="form-control">
             <label>E-mail *</label>
             <input
@@ -158,9 +154,9 @@ function LoginPage() {
           <button onClick={handleLogin} className="active btn btn-block">
             Entrar
           </button>
-          {/*<button onClick={handleGoogleLogin} className="active btn btn-block">
+          <button onClick={handleGoogleLogin} className="active btn btn-block">
             Login com Google
-          </button>*/}
+          </button>
 
           {error && <div className="error">{error}</div>}
           <a href="" onClick={handlePasswordReset} className="forgot-password">

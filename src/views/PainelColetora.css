@@ -25,7 +25,7 @@
   .painel-container {
     display: flex;
     flex: 1;
-    margin-top: 20px; /* Espaço para o header fixo */
+    margin-top: 50px; /* Espaço para o header fixo */
   }
   
   

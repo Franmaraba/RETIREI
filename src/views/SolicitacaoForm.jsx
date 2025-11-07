@@ -9,7 +9,7 @@ function SolicitacaoForm() {
   const [quantidade, setQuantidade] = useState("");
   const [observacoes, setObservacoes] = useState("");
   const [endereco, setEndereco] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
   const [mensagem, setMensagem] = useState("");
   const navigate = useNavigate();
 
@@ -20,13 +20,20 @@ function SolicitacaoForm() {
     try {
       const user = auth.currentUser;
       const userDoc = await getDoc(doc(db, "users", user.uid));
-      const nomeSolicitante = userDoc.exists()
-        ? userDoc.data().nome
-        : "Sem nome";
+
+      let nomeSolicitante = "";
+      let telefoneSolicitante = "";
+
+      if (userDoc.exists()) {
+        const dados = userDoc.data();
+        nomeSolicitante = dados.nome || "";
+        telefoneSolicitante = dados.telefone || "";
+      }
 
       await addDoc(collection(db, "coletas"), {
         solicitanteId: user.uid,
         nomeSolicitante,
+        telefoneSolicitante,
         tipoLixo,
         quantidade: parseInt(quantidade),
         observacoes,
@@ -40,7 +47,8 @@ function SolicitacaoForm() {
       setQuantidade("");
       setObservacoes("");
       setEndereco("");
-      navigate("/painel-usuario");
+
+      navigate("/");
     } catch (error) {
       console.error("Erro ao enviar solicitação:", error);
       setMensagem("Erro ao enviar solicitação.");
@@ -90,9 +98,8 @@ function SolicitacaoForm() {
         <button type="submit" disabled={loading}>
           {loading ? "Enviando..." : "Solicitar Coleta"}
         </button>
-        <p>Os campos com * são de preechimento obrigatório</p>
+        <p>Os campos com * são de preenchimento obrigatório</p>
       </form>
-      
 
       {mensagem && <p>{mensagem}</p>}
     </div>

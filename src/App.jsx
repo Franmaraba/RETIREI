@@ -11,6 +11,8 @@ import ProtectedRoute from "./componets/ProtectedRoute";
 import MainPage from "./views/MainPage";
 import PagePerfil from "./views/PagePerfil";
 import ColetasAceitas from "./views/ColetasAceitas";
+import HistoricoColetas from "./views/HistoricoColetas";
+import PainelPrincipal from "./componets/PainelPrincipal";
 
 function App() {
   return (
@@ -34,21 +36,14 @@ function AuthContent() {
       )}
 
       <Route
-        path="/painel-usuario"
+        path="/"
         element={
-          <ProtectedRoute tipoPermitido="solicitante">
-            <PainelUsuario />
+          <ProtectedRoute tipoPermitido={["solicitante", "coletora"]}>
+            <PainelPrincipal />
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/painel-coletora"
-        element={
-          <ProtectedRoute tipoPermitido="coletora">
-            <PainelColetora />
-          </ProtectedRoute>
-        }
-      />
+
       <Route
         path="/solicitacao"
         element={
@@ -57,19 +52,31 @@ function AuthContent() {
           </ProtectedRoute>
         }
       />
-      <Route path="/Perfil" element={
-        <ProtectedRoute tipoPermitido="coletora">
-          <PagePerfil/>
-        </ProtectedRoute>
-      }
+      <Route
+        path="/perfil"
+        element={
+          <ProtectedRoute tipoPermitido={["coletora", "solicitante"]}>
+            <PagePerfil />
+          </ProtectedRoute>
+        }
       />
-      <Route path="/coletas-aceitas" element={
-        <ProtectedRoute tipoPermitido="coletora">
-          <ColetasAceitas/>
-        </ProtectedRoute>
-      }
+      <Route
+        path="/coletas-aceitas"
+        element={
+          <ProtectedRoute tipoPermitido="coletora">
+            <ColetasAceitas />
+          </ProtectedRoute>
+        }
       />
-      
+
+      <Route
+        path="/historico-coletas"
+        element={
+          <ProtectedRoute tipoPermitido="coletora">
+            <HistoricoColetas />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }

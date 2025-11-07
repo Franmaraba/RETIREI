@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ importa o hook
 import Header from '../componets/Header';
 import { db, auth } from '../firebase/config';
-import { Navigate } from 'react-router-dom';
 import {
   collection,
   query,
@@ -12,11 +12,12 @@ import {
 } from 'firebase/firestore';
 import '../global.css';
 import MenuColetor from '../componets/MenuColetora';
-import './PainelColetora.css'; // Novo arquivo CSS
+import './PainelColetora.css';
 
 function PainelColetora() {
   const [coletas, setColetas] = useState([]);
-  const [loading, setLoading] = useState('');
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // ✅ cria a função de navegação
 
   useEffect(() => {
     const buscarColetasPendentes = async () => {
@@ -45,11 +46,12 @@ function PainelColetora() {
         empresaId: auth.currentUser.uid
       });
       setColetas((prev) => prev.map((c) => (c.id === id ? { ...c, status: novoStatus } : c)));
-      <Navigate to='/painel-coletora'/>
+
+     
+      navigate('/coletas-aceitas');
     } catch (error) {
       console.error('Erro ao atualizar status:', error);
     }
-   
   };
 
   const pageTitle = 'Painel Coletora';
@@ -58,7 +60,6 @@ function PainelColetora() {
     <div className="painel-wrapper">
       <Header pageTitle={pageTitle} />
       <main className="painel-container">
-        <MenuColetor />
         <section className="painel-content">
           <h2>Solicitações Pendentes</h2>
 

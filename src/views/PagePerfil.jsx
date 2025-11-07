@@ -3,6 +3,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db, auth } from "../firebase/config";
 import Header from "../componets/Header";
 import MenuColetor from "../componets/MenuColetora";
+import MenuSolicitante from "../componets/MenuSolicitante";
 import "./Perfil.css";
 
 function PagePerfil() {
@@ -11,6 +12,24 @@ function PagePerfil() {
   const [nome, setNome] = useState("");
   const [fotoURL, setFotoURL] = useState("");
   const [telefone, setTelefone] = useState("");
+
+  const aplicarMascaraTelefone = (valor) => {
+    const numeros = valor.replace(/\D/g, ""); // Remove tudo que não é número
+    if (numeros.length <= 10) {
+      // Telefone fixo (10 dígitos)
+      return numeros
+        .replace(/^(\d{2})(\d)/g, "($1) $2")
+        .replace(/(\d{4})(\d)/, "$1-$2");
+    } else {
+      // Celular (11 dígitos)
+      return numeros
+        .replace(/^(\d{2})(\d)/g, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
+    }
+  };
+  const handleTelefoneChange = (e) => {
+    setTelefone(aplicarMascaraTelefone(e.target.value));
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -40,7 +59,7 @@ function PagePerfil() {
       await updateDoc(userRef, {
         nome,
         fotoURL,
-        telefone
+        telefone,
       });
       alert("Perfil atualizado com sucesso!");
       setEditMode(false);
@@ -51,11 +70,14 @@ function PagePerfil() {
     }
   };
 
+  const isColetora = userData?.tipo === "coletora";
+
   return (
     <div className="perfil-wrapper">
       <Header pageTitle="Meu Perfil" />
       <main className="perfil-container">
-        <MenuColetor />
+        {isColetora && <MenuColetor />}
+        {!isColetora && userData && <MenuSolicitante />}
 
         <section className="perfil-content">
           <h2>Informações do Perfil</h2>
@@ -86,9 +108,11 @@ function PagePerfil() {
                   <input
                     type="text"
                     value={telefone}
-                    onChange={(e) => setTelefone(e.target.value)}
+                    onChange={handleTelefoneChange}
+                    placeholder="(00) 00000-0000"
+                    maxLength={15}
+                    required
                   />
-
 
                   <label>URL da Foto:</label>
                   <input
@@ -99,7 +123,10 @@ function PagePerfil() {
 
                   <div className="perfil-btns">
                     <button onClick={handleSave}>Salvar</button>
-                    <button className="cancelar" onClick={() => setEditMode(false)}>
+                    <button
+                      className="cancelar"
+                      onClick={() => setEditMode(false)}
+                    >
                       Cancelar
                     </button>
                   </div>
@@ -110,16 +137,20 @@ function PagePerfil() {
                     <strong>Nome:</strong> {userData.nome || "Não informado"}
                   </p>
                   <p>
-                    <strong>Telefone:</strong> {userData.telefone || "Não informado"}
+                    <strong>Telefone:</strong>{" "}
+                    {userData.telefone || "Não informado"}
                   </p>
                   <p>
                     <strong>Email:</strong> {auth.currentUser.email}
                   </p>
                   <p>
-                    <strong>CPF/CNPJ:</strong> {userData.CpfCnpj || "Desconhecido"}
+                    <strong>CPF/CNPJ:</strong>{" "}
+                    {userData.cpfCnpj || "Desconhecido"}
                   </p>
 
-                  <button onClick={() => setEditMode(true)}>Editar Perfil</button>
+                  <button onClick={() => setEditMode(true)}>
+                    Editar Perfil
+                  </button>
                 </div>
               )}
             </div>

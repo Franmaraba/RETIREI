@@ -14,6 +14,28 @@ function CreateAccount() {
   const [tipo, setTipo] = useState("solicitante"); // ou 'coletora'
   const navigate = useNavigate();
 
+  const aplicarMascaraCpfCnpj = (valor) => {
+    const numeros = valor.replace(/\D/g, "");
+    if (numeros.length <= 11) {
+      // CPF
+      return numeros
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else {
+      // CNPJ
+      return numeros
+        .replace(/(\d{2})(\d)/, "$1.$2")
+        .replace(/(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/.(\d{3})(\d)/, ".$1/$2")
+        .replace(/(\d{4})(\d)/, "$1-$2");
+    }
+  };
+
+  const handleCpfCnpjChange = (e) => {
+    setCpfCnpj(aplicarMascaraCpfCnpj(e.target.value));
+  };
+
   const handleCadastro = async (e) => {
     e.preventDefault();
 
@@ -36,9 +58,9 @@ function CreateAccount() {
 
       // Redireciona para o painel correto
       if (tipo === "solicitante") {
-        navigate("/painel-usuario");
+        navigate("/");
       } else {
-        navigate("/painel-coletora");
+        navigate("/");
       }
     } catch (error) {
       console.error("Erro no cadastro:", error.message);
@@ -72,16 +94,15 @@ function CreateAccount() {
             />
           </div>
 
-          <div className="form-control">
-            <label>CPF/CNPJ:</label>
-            <input
-              value={cpfCnpj}
-              onChange={(e) => setCpfCnpj(e.target.value)}
-              placeholder="Digite o seu CPF ou CNPJ"
-              required
-            />
-          </div>
-
+          <label>CPF/CNPJ:</label>
+        <input
+          type="text"
+          value={cpfCnpj}
+          onChange={handleCpfCnpjChange}
+          placeholder="Digite seu CPF ou CNPJ"
+          maxLength={18}
+          required
+        />
           <div className="form-control">
             <label>Email:</label>
             <input
