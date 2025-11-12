@@ -71,10 +71,11 @@ function CreateAccount() {
   return (
     <>
       <div>
-      <h4 className="logopage">
-        <NavLink to="/"><img src={logo} alt="Logo Retirei" /></NavLink>
-                  
-                </h4>
+        <h4 className="logopage">
+          <NavLink to="/">
+            <img src={logo} alt="Logo Retirei" />
+          </NavLink>
+        </h4>
         <form onSubmit={handleCadastro}>
           <h2>Cadastro</h2>
 
@@ -84,7 +85,7 @@ function CreateAccount() {
             <option value="coletora">Empresa Coletora</option>
           </select>
 
-          <div className="form-control"> 
+          <div className="form-control">
             <label>Nome:</label>
             <input
               value={nome}
@@ -93,16 +94,18 @@ function CreateAccount() {
               required
             />
           </div>
+          <div className="form-control">
+            <label>CPF/CNPJ:</label>
+            <input
+              type="text"
+              value={cpfCnpj}
+              onChange={handleCpfCnpjChange}
+              placeholder="Digite seu CPF ou CNPJ"
+              maxLength={18}
+              required
+            />
+          </div>
 
-          <label>CPF/CNPJ:</label>
-        <input
-          type="text"
-          value={cpfCnpj}
-          onChange={handleCpfCnpjChange}
-          placeholder="Digite seu CPF ou CNPJ"
-          maxLength={18}
-          required
-        />
           <div className="form-control">
             <label>Email:</label>
             <input

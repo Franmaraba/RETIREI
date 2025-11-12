@@ -12,7 +12,7 @@ function MenuSolicitante() {
         </NavLink>
 
         <NavLink to="/coletas-aceitas">
-          <button>Coletas aceitas</button>
+          <button>Coletas</button>
         </NavLink>
 
         <NavLink to="/historico-coletas">

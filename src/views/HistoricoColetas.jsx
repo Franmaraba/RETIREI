@@ -1,28 +1,66 @@
 import { useEffect, useState } from "react";
 import Header from "../componets/Header";
 import MenuColetor from "../componets/MenuColetora";
+import MenuSolicitante from "../componets/MenuSolicitante";
 import { db, auth } from "../firebase/config";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 import "./HistoricoColetas.css";
 
 function HistoricoColetas() {
+  const [userData, setUserData] = useState(null);
   const [coletas, setColetas] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [tipoUsuario, setTipoUsuario] = useState(null); // "coletor" ou "solicitante"
 
   useEffect(() => {
     const buscarHistorico = async () => {
       try {
-        const q = query(
+        const uid = auth.currentUser?.uid;
+        if (!uid) return;
+
+        // 🔹 Primeiro buscamos os dados do usuário logado
+        const userRef = doc(db, "usuarios", uid);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          setUserData(userSnap.data());
+        }
+
+        // 🔹 Busca coletas onde o usuário é empresa OU solicitante
+        const qColetor = query(
           collection(db, "coletas"),
-          where("empresaId", "==", auth.currentUser.uid),
+          where("empresaId", "==", uid),
           where("status", "==", "concluída")
         );
 
-        const snapshot = await getDocs(q);
-        const lista = [];
-        snapshot.forEach((docItem) => {
-          lista.push({ id: docItem.id, ...docItem.data() });
-        });
+        const qSolicitante = query(
+          collection(db, "coletas"),
+          where("solicitanteId", "==", uid),
+          where("status", "==", "concluída")
+        );
+
+        const [snapColetor, snapSolicitante] = await Promise.all([
+          getDocs(qColetor),
+          getDocs(qSolicitante),
+        ]);
+
+        let lista = [];
+
+        if (!snapColetor.empty) {
+          lista = snapColetor.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setTipoUsuario("coletor");
+        } else if (!snapSolicitante.empty) {
+          lista = snapSolicitante.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setTipoUsuario("solicitante");
+        } else {
+          setTipoUsuario("vazio");
+        }
+
         setColetas(lista);
       } catch (error) {
         console.error("Erro ao buscar histórico:", error);
@@ -34,11 +72,14 @@ function HistoricoColetas() {
     buscarHistorico();
   }, []);
 
+  const isColetora = userData?.tipo === "coletora";
+
   return (
     <div className="historico-wrapper">
       <Header pageTitle="Histórico de Coletas" />
       <main className="historico-container">
-        <MenuColetor />
+        {/* Exibe o menu correspondente */}
+        {isColetora ? <MenuColetor /> : <MenuSolicitante />}
 
         <section className="historico-content">
           <h2>Coletas Concluídas</h2>
@@ -51,7 +92,15 @@ function HistoricoColetas() {
             <ul>
               {coletas.map((coleta) => (
                 <li key={coleta.id} className="coleta-card">
-                  <strong>Solicitante:</strong> {coleta.nomeSolicitante} <br />
+                  {tipoUsuario === "coletor" ? (
+                    <>
+                      <strong>Solicitante:</strong> {coleta.nomeSolicitante} <br />
+                    </>
+                  ) : (
+                    <>
+                      <strong>Coletora:</strong> {coleta.nomeEmpresa || "—"} <br />
+                    </>
+                  )}
                   <strong>Tipo de Lixo:</strong> {coleta.tipoLixo} <br />
                   <strong>Quantidade:</strong> {coleta.quantidade} <br />
                   <strong>Endereço:</strong> {coleta.endereco} <br />

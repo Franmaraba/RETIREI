@@ -72,7 +72,7 @@ function AuthContent() {
       <Route
         path="/historico-coletas"
         element={
-          <ProtectedRoute tipoPermitido="coletora">
+          <ProtectedRoute tipoPermitido={["coletora", "solicitante"]}>
             <HistoricoColetas />
           </ProtectedRoute>
         }
