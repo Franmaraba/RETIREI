@@ -44,8 +44,6 @@ function PainelUsuario() {
   return (
     <>
       <Header pageTitle={pageTitle} />
-      <h2>Minhas Solicitações de Coleta</h2>
-
       {loading ? (
         <p>Carregando...</p>
       ) : coletas.length === 0 ? (

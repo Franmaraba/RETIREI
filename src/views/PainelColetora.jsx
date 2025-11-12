@@ -61,7 +61,6 @@ function PainelColetora() {
       <Header pageTitle={pageTitle} />
       <main className="painel-container">
         <section className="painel-content">
-          <h2>Solicitações Pendentes</h2>
 
           {loading ? (
             <p>Carregando...</p>
