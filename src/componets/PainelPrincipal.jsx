@@ -40,13 +40,13 @@ function PainelPrincipal() {
           {userData.tipo === "coletora" ? (
             <>
               <h2>Bem-vinda, {userData.nome}!</h2>
-              <p>Aqui estão suas coletas pendentes:</p>
+              <p className="p-paragrafo">Aqui estão suas coletas pendentes:</p>
               <PainelColetora /> 
             </>
           ) : (
             <>
               <h2>Bem-vindo(a), {userData.nome}!</h2>
-              <p>Gerencie suas solicitações abaixo:</p>
+              <p className="p-paragrafo">Gerencie suas solicitações abaixo:</p>
               <PainelUsuario />
             </>
           )}
