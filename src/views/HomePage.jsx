@@ -98,27 +98,28 @@ function HomePage() {
           </p>
         </div>
         <div className="icone">
-          <img src={sobreIcon} alt="Ícone sobre o projeto" />
+          <img src={sobreIcon} alt="Ícone sobre o projeto" className="icon-white"/>
         </div>
       </section>
 
       <section id="funciona" className="secao lado-direito">
         <div className="icone">
-          <img src={funcionaIcon} alt="Ícone de funcionamento" />
+          <img src={funcionaIcon} alt="Ícone de funcionamento" className="icon-white"/>
         </div>
 
         <div className="texto">
           <h2>
-            Descartar eletrônicos ficou fácil com o Retirei. Mas como funciona?
+            Descartar eletrônicos ficou fácil com o Retirei. <br />Mas como funciona?
           </h2>
           <p>
             Conectamos quem precisa descartar com quem sabe reciclar... 🔘
             Agende sua retirada agora e faça parte da mudança!
           </p>
         </div>
+        <br />
       </section>
 
-      <section id="suporte" className="secao lado-esquerdo">
+      <section id="suporte" className="secao lado-esquerdo" >
         <div className="texto">
           <h2>Suporte</h2>
           <p>
@@ -138,11 +139,15 @@ function HomePage() {
           </p>
         </div>
         <div className="icone">
-          <img src={helpIcon} alt="Ícone de suporte" />
+          <img src={helpIcon} alt="Ícone de suporte" className="icon-white"/>
         </div>
       </section>
     </>
   );
+
+  
 }
+
+
 
 export default HomePage;
