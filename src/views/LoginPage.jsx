@@ -151,11 +151,11 @@ function LoginPage() {
             />
           </div>
 
-          <button onClick={handleLogin} className="active btn btn-block">
+          <button onClick={handleLogin} className="active btn btn-block-entrar">
             Entrar
           </button>
-          <button onClick={handleGoogleLogin} className="active btn btn-block">
-            Login com Google
+          <button onClick={handleGoogleLogin} className="active btn btn-block-google">
+          Google
           </button>
 
           {error && <div className="error">{error}</div>}

@@ -45,7 +45,7 @@ body {
 }
 .hero-text strong {
   font-weight: 800; /* ou 700 se quiser mais suave */
-  color: #0a3a1e; /* opcional: dá destaque em verde */
+  color: #1eddad; /* opcional: dá destaque em verde */
 }
 
  .logo {
@@ -76,7 +76,7 @@ body {
 
 .menu a:hover,
 .menu a.active {
-  color: #6fcf97;
+  color: #1eddad;
 }
 
 
@@ -107,9 +107,9 @@ body {
 
 .titulo-descartes {
   text-align: center;
-  background: linear-gradient(90deg, #00a86b);
+  background: linear-gradient(90deg,#1eddad);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; 
   font-size: 25px;
   font-weight: 600;
   margin: 40px auto;
@@ -136,7 +136,7 @@ body {
 
 
  .hero {
-    background: linear-gradient(to right, #00a86b);
+    background: linear-gradient(to right, #1eddad);
     background-image: url('fundo.png'); /* Coloque o caminho da sua imagem aqui */
     background-size: cover;
     background-position: center;
@@ -177,7 +177,7 @@ body {
  }
 
  .feature {
-     background: linear-gradient(135deg,#6fcf97);
+     background: linear-gradient(135deg,#1eddad);
      color: white;
      width: 30x;
      border-radius: 10px;
@@ -209,7 +209,7 @@ body {
   display: block;
   width: 120px;
   height: 4px;
-  background: linear-gradient(90deg, #6fcf97);
+  background: linear-gradient(90deg,#1eddad);
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -218,7 +218,7 @@ body {
 .secao {
   display: flex;
   align-items: center;           /* verticalmente alinhado */
-  justify-content: space-between;
+  justify-content: center;
   min-height: 70vh;             /* altura da seção — ajuste se quiser */
   background-color: #1eddad;    /* fundo claro parecido com o exemplo */
   padding: 60px 0;              /* espaçamento superior/inferior */
@@ -234,18 +234,18 @@ body {
 }
 
 .secao .texto h2 {
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1.4;
-  color: #0e6049;               /* verde escuro similar */
+  color: #ffffff;               /* verde escuro similar */
   font-weight: 700;
   margin-bottom: 18px;
 }
 
 .secao .texto p {
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.8;
-  color: #333;
-  text-align: center;           /* mantém o bloco centralizado */
+  color: #ffffff;
+  text-align: justify;           /* mantém o bloco centralizado */
   max-width: 520px;
   margin: 0 auto;
 }
@@ -283,7 +283,7 @@ body {
   }
 
   .secao .texto {
-    text-align: justify;
+    text-align: left;
     padding: 0 10px;
   }
 
@@ -293,4 +293,11 @@ body {
     object-fit: contain;
     margin-top: 24px;
   }
+}
+/* teste */
+
+.icon-white {
+  filter: brightness(0) invert(1);
+    width: 70%;   /* ajuste o tamanho como quiser */
+    height: auto;  /* mantém a proporção */  
 }
