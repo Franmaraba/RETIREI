@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
-import './Menus.css';
+import "./Menus.css";
 
 function MenuSolicitante() {
-
   return (
     <>
       <section className="container-menu">
-        <h2>Menu</h2>
+        <NavLink to="/">
+          <button>Inicio</button>
+        </NavLink>
+        
         <NavLink to="/perfil">
           <button>Perfil</button>
         </NavLink>
@@ -16,7 +18,7 @@ function MenuSolicitante() {
         </NavLink>
 
         <NavLink to="/historico-coletas">
-          <button>Historico de Coletas</button>
+          <button>Historico</button>
         </NavLink>
       </section>
     </>

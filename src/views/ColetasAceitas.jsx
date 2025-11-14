@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../componets/Header";
 import MenuColetor from "../componets/MenuColetora";
 import { db, auth } from "../firebase/config";
-import { collection, query, where, getDocs, doc, updateDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, updateDoc, getDoc } from "firebase/firestore";
 import './ColetasAceitas.css';
 
 function ColetasAceitas() {
@@ -19,10 +19,11 @@ function ColetasAceitas() {
         );
 
         const snapshot = await getDocs(q);
-        const lista = [];
-        snapshot.forEach((docItem) => {
-          lista.push({ id: docItem.id, ...docItem.data() });
-        });
+        const lista = snapshot.docs.map((docItem) => ({
+          id: docItem.id,
+          ...docItem.data(),
+        }));
+
         setColetas(lista);
       } catch (error) {
         console.error("Erro ao buscar coletas aceitas:", error);
@@ -36,10 +37,28 @@ function ColetasAceitas() {
 
   const marcarConcluida = async (id) => {
     try {
-      const coletaRef = doc(db, "coletas", id);
-      await updateDoc(coletaRef, { status: "concluída" });
+      // 1. Buscar nome da empresa em users/{uid}
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      const userSnap = await getDoc(userRef);
 
+      if (!userSnap.exists()) {
+        alert("Erro: dados da empresa não encontrados!");
+        return;
+      }
+
+      const nomeEmpresa = userSnap.data().nomeEmpresa || userSnap.data().nome;
+
+      // 2. Atualizar coleta
+      const coletaRef = doc(db, "coletas", id);
+      await updateDoc(coletaRef, {
+        status: "concluída",
+        nomeEmpresa: nomeEmpresa,
+        empresaId: auth.currentUser.uid,
+      });
+
+      // 3. Remover da lista exibida
       setColetas((prev) => prev.filter((c) => c.id !== id));
+
       alert("Coleta marcada como concluída!");
     } catch (error) {
       console.error("Erro ao atualizar status:", error);
@@ -63,7 +82,7 @@ function ColetasAceitas() {
             <ul>
               {coletas.map((coleta) => (
                 <li key={coleta.id} className="coleta-card">
-                  <strong>Solicitante:</strong> {coleta.nomeSolicitante } <br />
+                  <strong>Solicitante:</strong> {coleta.nomeSolicitante} <br />
                   <strong>Telefone:</strong> {coleta.telefoneSolicitante || "Sem Telefone"} <br />
                   <strong>Tipo de Lixo:</strong> {coleta.tipoLixo} <br />
                   <strong>Quantidade:</strong> {coleta.quantidade} <br />

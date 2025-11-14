@@ -18,7 +18,8 @@ function PainelUsuario() {
         // Cria uma consulta para buscar coletas do usuário logado
         const q = query(
           collection(db, "coletas"),
-          where("solicitanteId", "==", user.uid)
+          where("solicitanteId", "==", user.uid),
+          where("status", "in", ["em andamento","pendente"])
         );
 
         const querySnapshot = await getDocs(q);
@@ -58,6 +59,8 @@ function PainelUsuario() {
               <strong>Data:</strong>{" "}
               {coleta.dataSolicitacao?.toDate().toLocaleString()}
               <hr />
+              <button>editar</button>
+              <button>Excluir</button>
             </li>
           ))}
         </ul>

@@ -103,7 +103,6 @@ function HistoricoColetas() {
                   )}
                   <strong>Tipo de Lixo:</strong> {coleta.tipoLixo} <br />
                   <strong>Quantidade:</strong> {coleta.quantidade} <br />
-                  <strong>Endereço:</strong> {coleta.endereco} <br />
                   <strong>Status:</strong>{" "}
                   <span className="status-concluida">{coleta.status}</span> <br />
                   {coleta.dataConclusao && (
