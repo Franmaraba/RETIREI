@@ -122,7 +122,9 @@ function PagePerfil() {
                   />
 
                   <div className="perfil-btns">
-                    <button onClick={handleSave} className="btn-salvar">Salvar</button>
+                    <button onClick={handleSave} className="btn-salvar">
+                      Salvar
+                    </button>
                     <button
                       className="btn-cancelar"
                       onClick={() => setEditMode(false)}
@@ -148,7 +150,10 @@ function PagePerfil() {
                     {userData.cpfCnpj || "Desconhecido"}
                   </p>
 
-                  <button onClick={() => setEditMode(true)} className="btn-editar">
+                  <button
+                    onClick={() => setEditMode(true)}
+                    className="btn-editar"
+                  >
                     Editar Perfil
                   </button>
                 </div>
