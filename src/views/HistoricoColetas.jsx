@@ -19,7 +19,7 @@ function HistoricoColetas() {
         if (!uid) return;
 
         // 🔹 Primeiro buscamos os dados do usuário logado
-        const userRef = doc(db, "usuarios", uid);
+        const userRef = doc(db, "users", uid);
         const userSnap = await getDoc(userRef);
         if (userSnap.exists()) {
           setUserData(userSnap.data());
@@ -73,13 +73,14 @@ function HistoricoColetas() {
   }, []);
 
   const isColetora = userData?.tipo === "coletora";
+  //const isSolicitante = userData?.tipo ==="solicitante"
 
   return (
     <div className="historico-wrapper">
       <Header pageTitle="Histórico de Coletas" />
       <main className="historico-container">
         {/* Exibe o menu correspondente */}
-        {isColetora ? <MenuColetor /> : <MenuSolicitante />}
+        {!isColetora ? (<MenuSolicitante />) : (<MenuColetor />)}
 
         <section className="historico-content">
           <h2>Coletas Concluídas</h2>

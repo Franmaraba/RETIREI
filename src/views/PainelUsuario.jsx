@@ -148,7 +148,7 @@ function PainelUsuario() {
                   {coleta.dataSolicitacao?.toDate().toLocaleString()}
                   <hr />
                   <button onClick={() => editarColeta(coleta)}>Editar</button>
-                  <button onClick={handleDelete}>Excluir</button>
+                  <button onClick={() => handleDelete(coleta.id)}>Excluir</button>
                 </li>
               ))}
             </ul>
