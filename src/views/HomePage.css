@@ -84,7 +84,7 @@ body {
 
 
 .feature {
-  background: linear-gradient(135deg, #00a86b);
+  background: linear-gradient(135deg,#0C4A40);
   color: white;
   width: 220px;
   border-radius: 10px;
@@ -106,11 +106,12 @@ body {
 }
 
 .titulo-descartes {
+  padding: 30px;
   text-align: center;
-  background: linear-gradient(90deg,#1eddad);
+  background: linear-gradient(90deg,#0C4A40);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
   margin: 40px auto;
 }
@@ -121,7 +122,7 @@ body {
     display: block;
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg,#00a86b);
+    background: linear-gradient(90deg,#0C4A40 );
     margin: 10px auto 0;
     border-radius: 2px;
 }
@@ -136,7 +137,7 @@ body {
 
 
  .hero {
-    background: linear-gradient(to right, #1eddad);
+    background: linear-gradient(to right,#0C4A40 );
     background-image: url('fundo.png'); /* Coloque o caminho da sua imagem aqui */
     background-size: cover;
     background-position: center;
@@ -171,13 +172,13 @@ body {
  .features {
      display: flex;
      justify-content: center;
-     gap: 20px;
+     gap: 50px;
      padding: 60px 30px;
      flex-wrap: wrap;
  }
 
  .feature {
-     background: linear-gradient(135deg,#1eddad);
+     background: linear-gradient(135deg,#0C4A40   );
      color: white;
      width: 30x;
      border-radius: 10px;
@@ -209,7 +210,7 @@ body {
   display: block;
   width: 120px;
   height: 4px;
-  background: linear-gradient(90deg,#1eddad);
+  background: linear-gradient(90deg,#0A1A2F);
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -220,7 +221,7 @@ body {
   align-items: center;           /* verticalmente alinhado */
   justify-content: center;
   min-height: 70vh;             /* altura da seção — ajuste se quiser */
-  background-color: #1eddad;    /* fundo claro parecido com o exemplo */
+  background-color:#0C4A40  ;    /* fundo claro parecido com o exemplo */
   padding: 60px 0;              /* espaçamento superior/inferior */
   overflow: hidden;             /* evita scroll se a img "vazar" */
 }
@@ -267,6 +268,76 @@ body {
   object-fit: cover;            /* preenche mantendo proporção */
   display: block;
 }
+
+/* === CARD FLIP === */
+
+.card {
+  width: 230px;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(-180deg); /* muda o sentido do flip */
+}
+
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(48, 207, 208, 0.3);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === FRENTE DO CARD === */
+.card-front {
+  background: #0C4A40;
+  color: white;
+}
+
+.card-front img {
+  width: 100%;
+  height: 160px;
+  gap: 30px; /* antes era 20px */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* === VERSO DO CARD === */
+.card-back {
+  background: #ffffff;
+  color: #0C4A40;
+  transform: rotateY(180deg);
+  text-align: center;
+  padding-top: 30px;
+}
+
+.card-back p {
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+.card {
+  margin-bottom: 20px; /* separação vertical entre as linhas */
+}
+
 
 /* responsividade: empilha em telas menores */
 @media (max-width: 900px) {
