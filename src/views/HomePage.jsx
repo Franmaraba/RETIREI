@@ -79,7 +79,7 @@ function HomePage() {
 
         <div className="hero-text">
           <p>
-            Cuide do <strong>futuro,</strong>
+            Cuide do <strong>futuro</strong>,
             <br /> descarte de forma
             <br />
             responsável.
@@ -94,25 +94,29 @@ function HomePage() {
           <FeatureCard
             title="Celulares"
             img={celulares}
-            info="Antes de se desfazer do seu aparelho, remova todos os dados pessoais e faça um backup. Retire o chip e o cartão de memória. Procure pontos de coleta autorizados, como lojas de eletrônicos, operadoras ou programas de reciclagem, para garantir que os materiais tóxicos não contaminem o meio ambiente. Lembre-se: celulares contêm metais valiosos que podem ser reaproveitados se descartados corretamente."
+            info="Antes de descartar o aparelho, apague os dados, faça backup e retire chip e cartão. Entregue-o em pontos de coleta autorizados para evitar danos ao ambiente e permitir a reciclagem dos metais."
+
+
           />
 
           <FeatureCard
             title="Computadores"
             img={computadores}
-            info="Placas, HDs e fios podem ser reaproveitados e reciclados."
+            info="Antes de descartar o computador, apague os dados, faça backup e remova itens pessoais. Entregue-o em pontos de coleta autorizados para evitar impactos ambientais e permitir a reciclagem."
           />
 
           <FeatureCard
             title="Pilhas e Baterias"
             img={pilhas}
-            info="Contêm compostos tóxicos e precisam de descarte especial."
+            info="Antes de descartar pilhas e baterias, verifique se estão vazando e armazene-as em local seguro. Leve-as a pontos de coleta autorizados para evitar contaminação do solo e da água e garantir a reciclagem dos materiais."
           />
 
           <FeatureCard
             title="Eletrodomésticos"
             img={eletronico}
-            info="Plásticos, motores e metais podem ser reciclados adequadamente."
+            info="Antes de descartar eletrodomésticos, retire itens pessoais e separe peças úteis, como: cabos, botões, plástico e etc. Leve-os a pontos de coleta autorizados para evitar danos ambientais e permitir a reciclagem.
+
+"
           />
         </section>
       </div>
@@ -121,12 +125,12 @@ function HomePage() {
         <div className="texto">
           <h2>Sobre o projeto</h2>
           <p>
-            Nosso sistema foi desenvolvido para facilitar o descarte consciente
-            de eletrônicos [...]
+           Nosso sistema foi desenvolvido para facilitar o descarte consciente de eletrônicos, conectando pessoas que desejam descartar seus aparelhos de forma correta com empresas especializadas na coleta e reciclagem desses materiais. 
           </p>
         </div>
         <div className="icone">
           <img src={sobreIcon} className="icon-white" alt="" />
+        
         </div>
       </section>
 
@@ -137,14 +141,16 @@ function HomePage() {
 
         <div className="texto">
           <h2>Descartar eletrônicos ficou fácil com o Retirei.</h2>
-          <p>Conectamos quem precisa descartar com quem sabe reciclar...</p>
+          <p>Por meio da plataforma, o usuário realiza uma solicitação de descarte, informando o tipo de equipamento e o local de retirada. As empresas cadastradas recebem essas solicitações, podendo agendar a coleta de maneira prática, rápida e segura.
+<br /> <br />
+Além de simplificar o processo, o projeto incentiva a sustentabilidade e a responsabilidade ambiental, contribuindo para a redução de resíduos eletrônicos descartados de forma inadequada.</p>
         </div>
       </section>
 
       <section id="suporte" className="secao lado-esquerdo">
         <div className="texto">
           <h2>Suporte</h2>
-          <p>Nossa equipe está pronta para te ajudar...</p>
+          <p>Nossa equipe está pronta para te ajudar! Estamos à disposição para te ajudar e ajudar ao meio ambiente. <br /> <br /> Caso tenha dúvidas entre em contato no e-mail: suporte@retirei.com</p>
         </div>
         <div className="icone">
           <img src={helpIcon} className="icon-white" alt="" />

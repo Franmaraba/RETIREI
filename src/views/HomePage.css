@@ -46,6 +46,8 @@ body {
 .hero-text strong {
   font-weight: 800; /* ou 700 se quiser mais suave */
   color: #1eddad; /* opcional: dá destaque em verde */
+  -webkit-text-stroke-width: 0.5px; /* Espessura do contorno */
+  -webkit-text-stroke-color: #ffffff; /* Cor do contorno */
 }
 
  .logo {
