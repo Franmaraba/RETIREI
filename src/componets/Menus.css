@@ -38,10 +38,10 @@
     .painel-container {
       flex-direction: column;
     }
-  
+     
     .container-menu {
-      width: 100%;
-      flex-direction: row;
+      width: 10%;
+      flex-direction: column;
       justify-content: space-around;
       box-shadow: none;
     }
@@ -49,4 +49,11 @@
     .painel-content {
       padding: 1rem;
     }
+  }
+
+  @media (max-width: 375px){
+    .painel-container {
+      flex-direction: column;
+    }
+
   }

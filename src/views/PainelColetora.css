@@ -75,8 +75,10 @@
   /* Responsividade */
   @media (max-width: 768px) {
     .painel-container {
-      flex-direction: column;
+      flex-direction: row;
     }
+
+    
   
     .container-menu {
       width: 100%;
