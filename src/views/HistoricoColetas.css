@@ -7,7 +7,7 @@
   .historico-container {
     display: flex;
     flex: 1;
-    margin-top: 60px; /* espaço para o header fixo */
+    margin-top: 50px; /* espaço para o header fixo */
   }
   
   /* Menu lateral reutilizado */
