@@ -188,3 +188,33 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+/* VIDEO EXPLICATIVO */
+
+.video-final {
+  text-align: center;
+  padding: 50px 20px;
+  color: white; /* deixa o texto branco */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza tudo */
+  gap: 20px; /* espaço entre texto e vídeo */
+}
+
+.video-final h2 {
+  color: white; /* garante que o título fique branco */
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.video-container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
