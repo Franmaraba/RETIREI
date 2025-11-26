@@ -95,7 +95,7 @@ function SolicitacaoForm() {
           required
         />
 
-        <button type="submit" disabled={loading}>
+        <button className="button-form" type="submit" disabled={loading}>
           {loading ? "Enviando..." : "Solicitar Coleta"}
         </button>
         <p>Os campos com * são de preenchimento obrigatório</p>

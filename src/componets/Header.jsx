@@ -7,21 +7,26 @@ import logo from "../assets/Retirei.png";
 import "../App.css";
 import "./Header.css";
 
+
 function Header({ pageTitle }) {
   const { user } = useAuth();
+  
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate("");
 
   useEffect(() => {
     const fetchUserData = async () => {
       if (user?.uid) {
+        
         try {
           const userRef = doc(db, "users", user.uid);
+
           const userSnap = await getDoc(userRef);
 
           if (userSnap.exists()) {
             setUserData(userSnap.data());
           } else {
+
             console.warn("Usuário não encontrado no Firestore");
           }
         } catch (error) {
@@ -34,6 +39,7 @@ function Header({ pageTitle }) {
   }, [user]);
 
   const handleSignOut = async () => {
+    
     if (window.confirm("Realmente deseja sair?")) {
       try {
         await auth.signOut();

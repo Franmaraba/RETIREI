@@ -23,6 +23,7 @@ function PainelPrincipal() {
       }
     };
     carregarDados();
+    
   }, []);
 
   if (!userData) return <p>Carregando...</p>;

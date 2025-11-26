@@ -30,7 +30,7 @@ body {
   
   form {
     background-color: #f7eee9;
-    padding: 20px;
+    padding: 25px 45px 25px 25px;
     border-radius: 20px;
     max-width: 500px;
     margin: auto;
@@ -133,7 +133,57 @@ body {
 }
 .btn-block-entrar,
 .btn-block-google,
-.button-submit{
+.button-submit,
+.button-editar,
+.button-excluir{
   width: 100px; /* escolha o tamanho desejado */
 }
 
+.button-editar {
+  margin: 5px 20px auto 5px; /* espaçamento menor */
+  padding: 15px 25px;
+  background-color: #1eddad;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button-excluir {
+  margin: 10px auto; /* espaçamento menor */
+  padding: 15px 25px;
+  background-color: #dd241e;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-excluir:hover{
+  background-color: pink;
+}
+.button-request {
+  margin: 10px auto; /* espaçamento menor */
+  padding: 15px 25px;
+  background-color: #005fa3;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button-request:hover {
+  background-color: #0095ff;
+}
+.button-form {
+  display: block;
+  margin: 10px auto; /* espaçamento menor */
+  padding: 15px 25px;
+  background-color: #1eddad;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}

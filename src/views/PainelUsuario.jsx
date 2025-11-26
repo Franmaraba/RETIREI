@@ -147,8 +147,8 @@ function PainelUsuario() {
                   <strong>Data:</strong>{" "}
                   {coleta.dataSolicitacao?.toDate().toLocaleString()}
                   <hr />
-                  <button onClick={() => editarColeta(coleta)}>Editar</button>
-                  <button onClick={() => handleDelete(coleta.id)}>Excluir</button>
+                  <button className="button-editar" onClick={() => editarColeta(coleta)}>Editar</button>
+                  <button className="button-excluir" onClick={() => handleDelete(coleta.id)}>Excluir</button>
                 </li>
               ))}
             </ul>
@@ -159,7 +159,7 @@ function PainelUsuario() {
       <NavLink to="/solicitacao">
         <div className="floating-button">
           <span>
-            <button>Nova solicitação</button>
+            <button className="button-request" >Nova solicitação</button>
           </span>
         </div>
       </NavLink>
