@@ -1,34 +1,24 @@
 /* Menu lateral esquerdo */
 .container-menu {
-    background: #000000;
-    color: #333;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 100px;
-    min-height: calc(100vh - 60px);
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-    overflow:hidden;
-  }
+  background: #ffffff;
+  padding: 20px 15px;
+  border-right: 1px solid #e5e5e5;
+  max-width: 125px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-  .container-menu h2 {
-    margin-bottom: 0.5rem;
-    color: #ffffff;
-    font-size: 30px;
-  }
-  
-  .container-menu button {
-    background: #1eddad;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-    width: 100%;
-    transition: 0.3s;
-  }
+.container-menu button {
+  background: #2ecc71;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+}
   
   .container-menu button:hover {
     background: #86edd3;
