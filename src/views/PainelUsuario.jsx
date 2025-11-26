@@ -134,8 +134,8 @@ function PainelUsuario() {
                 onChange={(e) => setQuantidade(e.target.value)}
               />
 
-              <button onClick={handleSave}>Salvar</button>
-              <button onClick={() => setEditMode(false)}>Cancelar</button>
+              <button className="button-salve" onClick={handleSave}>Salvar</button>
+              <button className="button-cancel" onClick={() => setEditMode(false)}>Cancelar</button>
             </div>
           ) : (
             <ul>

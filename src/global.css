@@ -138,7 +138,7 @@ body {
 .button-excluir{
   width: 100px; /* escolha o tamanho desejado */
 }
-
+.button-salve,
 .button-editar {
   margin: 5px 20px auto 5px; /* espaçamento menor */
   padding: 15px 25px;
@@ -149,6 +149,7 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+.button-cancel,
 .button-excluir {
   margin: 10px auto; /* espaçamento menor */
   padding: 15px 25px;
