@@ -6,6 +6,8 @@ import eletronico from "../assets/eletrodomesticos.jpg";
 import sobreIcon from "../assets/icone-sobre.png";
 import funcionaIcon from "../assets/funciona.ong.png";
 import helpIcon from "../assets/help.png";
+import videoDescarte from "../assets/video_descarte.mp4";
+
 
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -156,7 +158,23 @@ Além de simplificar o processo, o projeto incentiva a sustentabilidade e a resp
           <img src={helpIcon} className="icon-white" alt="" />
         </div>
       </section>
-    </>
+
+
+<section className="secao video-final">
+  <h2>Assista ao vídeo para saber mais: </h2>
+
+  <div className="video-container">
+    <video controls>
+      <source src={videoDescarte} type="video/mp4" />
+      Seu navegador não suporta vídeos.
+    </video>
+  </div>
+</section>
+
+
+</>
+
+
   );
 }
 
