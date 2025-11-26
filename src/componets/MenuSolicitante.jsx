@@ -13,10 +13,6 @@ function MenuSolicitante() {
           <button>Perfil</button>
         </NavLink>
 
-        <NavLink to="/coletas-aceitas">
-          <button>Coletas</button>
-        </NavLink>
-
         <NavLink to="/historico-coletas">
           <button>Historico</button>
         </NavLink>
