@@ -13,6 +13,7 @@
   /* Menu lateral reutilizado */
   .container-menu {
     background: #bfccc2;
+    
     padding: 1rem;
     width: 220px;
     min-height: calc(100vh - 60px);
